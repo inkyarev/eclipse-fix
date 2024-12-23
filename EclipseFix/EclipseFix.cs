@@ -6,18 +6,18 @@ using HealthComponent = On.RoR2.HealthComponent;
 namespace EclipseFix;
 
 [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-public class ExamplePlugin : BaseUnityPlugin
+public class EclipseFixPlugin : BaseUnityPlugin
 {
     private const string PluginGUID = PluginAuthor + "." + PluginName;
     private const string PluginAuthor = "InkyaRev";
-    private const string PluginName = "EclipseFixPlugin";
+    private const string PluginName = "EclipseFix";
     private const string PluginVersion = "1.0.0";
     
     public void Awake()
     {
         Log.Init(Logger);
         HealthComponent.RepeatHealComponent.FixedUpdate += (_, selfMonoBehaviour) =>
-        {
+        { 
             if (selfMonoBehaviour is RoR2.HealthComponent.RepeatHealComponent self)
             {
                 self.timer -= Time.fixedDeltaTime;
